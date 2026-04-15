@@ -41,8 +41,19 @@ Exemple:
 
 def fibonacci(fibonacci_number):
     # Write here your code
-    pass
+    if not isinstance(fibonacci_number, int):
+        raise ValueError("El parámetro 'fibonacci_number' debe ser un número entero")
+    if fibonacci_number < 0:
+        raise ValueError("El parámetro 'fibonacci_number' debe ser positivo")
+    
+    fib0 = 0
+    fib1 = 1
+
+    for _ in range(fibonacci_number):
+        fib0, fib1 = fib1, fib0 + fib1
+
+    return fib0
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script 
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# print(fibonacci(10))
+print(fibonacci(10))
